@@ -1,11 +1,10 @@
 import './App.css';
-
+import Container from "./Components/game_loby"
 function App() {
+
   return (
     <div className="App">
-      <div>
-        <h1>Game Lobby</h1>
-      </div>
+      <Container/>
     </div>
   );
 }
