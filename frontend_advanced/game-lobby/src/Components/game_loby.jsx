@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import Box from "./Box";
 import React from "react";
 import Container from "@material-ui/core/Container";
-
-const colorContext = React.createContext()
+import Context from "./../Context/context"
 
 const Containers = (props) => {
 
     const [users, setUsers] = useState([
+        {id: 0, color: "white"},
         {id: 1, color: "white"},
         {id: 2, color: "white"},
-        {id: 3, color: "white"},
-        {id: 4, color: "white"}
+        {id: 3, color: "white"}
     ])
+
+    const value = useMemo(
+        () => ({users, setUsers}),
+        [users]
+    )
     return ( 
-    <colorContext.Provider value={{users: users, setUsers: setUsers}}>
+    <Context.Provider value={value}>
         <Container>
             <div className="Container">
                 <h1>Game Lobby</h1>
@@ -25,7 +29,7 @@ const Containers = (props) => {
                 </div>
             </div>
         </Container>
-    </colorContext.Provider>
+    </Context.Provider>
     )
 
 }
