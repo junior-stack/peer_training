@@ -11,6 +11,12 @@ export default function SelectButton(props) {
         const acc = [];
         let i = 0;
         let curr = 0;
+
+        for(i = 0; i < users.length; i++){
+          if(users[i].color == event.target.value){
+            return;
+          }
+        }
         for(i = 0; i < users.length; i++){
             if(users[i].id == props.id){
                 acc.push({id: users[i].id, color: event.target.value});
