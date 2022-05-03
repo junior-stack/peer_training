@@ -1,4 +1,4 @@
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 import Box from "./Box";
 import React from "react";
 import Container from "@material-ui/core/Container";
