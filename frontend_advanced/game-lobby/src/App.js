@@ -1,10 +1,16 @@
 import './App.css';
-import Container from "./Components/game_loby"
+import Containers from "./Components/game_loby";
+
+
+
+
 function App() {
+
+
 
   return (
     <div className="App">
-      <Container/>
+      <Containers/>
     </div>
   );
 }

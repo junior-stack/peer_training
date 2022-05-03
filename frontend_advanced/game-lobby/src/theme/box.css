@@ -1,5 +1,6 @@
 .title{
     border-bottom: 2px solid black;
+    height: 30%;
 }
 
 .outside{
@@ -8,6 +9,12 @@
     display: inline-block;
     margin: 5%;
     justify-content: space-between;
-    min-height: 10em;
+    min-height: 20em;
     border-radius: 5%;
+    background-color: #d0d7de;
+}
+
+.optionBox{
+    width: 100%;
+    height: 100%;
 }

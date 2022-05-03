@@ -1,19 +1,33 @@
+import { useState } from "react";
 import Box from "./Box";
+import React from "react";
+import Container from "@material-ui/core/Container";
 
-const Container = (props) => {
+const colorContext = React.createContext()
 
+const Containers = (props) => {
+
+    const [users, setUsers] = useState([
+        {id: 1, color: "white"},
+        {id: 2, color: "white"},
+        {id: 3, color: "white"},
+        {id: 4, color: "white"}
+    ])
     return ( 
-    <div className="Container">
-        <h1>Game Lobby</h1>
-        <div>
-            <Box id="1"/>
-            <Box id="2"/>
-            <Box id="3"/>
-            <Box id="4"/>
-        </div>
-    </div>
+    <colorContext.Provider value={{users: users, setUsers: setUsers}}>
+        <Container>
+            <div className="Container">
+                <h1>Game Lobby</h1>
+                <div>
+                    {users.map((element) =>{
+                        return <Box key={element.id} id={element.id} />
+                    })}
+                </div>
+            </div>
+        </Container>
+    </colorContext.Provider>
     )
 
 }
 
-export default Container;
+export default Containers;
