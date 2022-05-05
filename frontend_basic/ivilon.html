@@ -2,11 +2,14 @@
 <html>
     <head>
         <title>ivilon</title>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
             .banner{
                 height: 1044px;
                 background-image: url('https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg');
+                /* background: transparent; */
+                background-attachment: fixed;
                 padding: 0;
             }
 
@@ -70,6 +73,7 @@
                 height: 280px;
                 align-items: center;
                 background-color: #fff;
+                position: relative;
             }
 
             .card-img-top img{
@@ -185,30 +189,74 @@
                 border: 1px solid black;
             }
 
+            .navbar{
+                justify-content: center;
+                
+            }
+
+            .nav-item{
+                width: 154px;
+            }
+
+            .image_overlay{
+                position: absolute;
+                top: 250px;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                opacity: 0;
+                transition: 1s;
+                overflow: hidden;
+            }
+
+            .image_overlay .image_title{
+                height: 30px;
+                background-color: rgb(47,46,46);
+                color: #ffffff;
+                text-align: center;
+            }
+
+            .image_overlay:hover{
+                opacity: 1;
+            }
+
+            .image_overlay > *{
+                transform: translateY(30px);
+                transition: 1s;
+            }
+
+            .image_overlay:hover > * {
+                transform: translateY(0)
+            }
+
         </style>
     </head>
     <body>
         <!-- https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png -->
         <!-- https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg -->
         <div class="container-fluid banner">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-fixed-top navbar-default navbar-expand-lg navbar-light bg-dark">
                 <div class="d-flex">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <!-- <a class="navbar-brand" href="#">Navbar</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </button> -->
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#">Features</a>
-                            <a class="nav-item nav-link" href="#">Pricing</a>
-                            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-item nav-link active" href="#" style="color: #fff;">HOME<span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#" style="color: #fff;">COLLECTION</a>
+                            <a class="nav-item nav-link" href="#" style="color: #fff;">ABOUT US</a>
+                            <a class="nav-item nav-link disabled" href="#" style="color: #fff;">CONTACT</a>
                         </div>
                     </div>
                 </div>
             </nav>
-            <div class="d-flex title">
+            <div class="d-flex title mt-5">
                 <img src="https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png"></img>
+            </div>
+
+            <div>
+
             </div>
         </div>
         <div class="d-flex container-fluid contents-body mt-5">
@@ -241,6 +289,9 @@
                 <div class="card mb-5">
                     <div class="card-img-top d-flex">
                         <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                        <div class="image_overlay">
+                            <div class="image_title">Available in more options</div>
+                        </div>
                     </div>
                     <div class="card-footer card-content d-flex">
                         <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
@@ -302,10 +353,16 @@
                                     <div class="row" style="justify-items: start; align-items: flex-start;">
                                         <div class="col-md-12" ><i>Type your message here...</i>
                                         </div>
-                                        <div class="col-md-4 bg-dark mt-3" style="height: 52px;">I'm not a robot</div>
-                                        <div class="col-md-3 bg-dark mt-3 col-md-offset-5" style="height: 52px;">Submit</div>
-
                                     </div>
+                                    <!-- <div class="row">
+                                        <div class="col-md-4 mt-3" style="height: 52px;">
+                                            <div
+                                            class="g-recaptcha"
+                                            data-sitekey="6LcaDOEcAAAAAMMMjj-8-BQorfN6X5DJIScfRuFz"
+                                        ></div>
+                                        </div>
+                                        <div class="col-md-3 bg-dark mt-3 col-md-offset-5" style="height: 52px;">Submit</div>
+                                    </div> -->
                                 </div>
                             </div>
                             
