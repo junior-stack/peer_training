@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ivilon</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .banner{
+                height: 1044px;
+                background-image: url('https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg');
+                padding: 0;
+            }
+
+            .navbar{
+                height: 64px;
+                z-index: 5;
+            }
+
+            .title{
+                justify-content: center;
+                align-items: center;
+            }
+
+            .title img{
+                width: 324px;
+                height: 162px;
+            }
+
+            .collection{
+                width: 980px;
+                height: 232px;
+                background-color: #d1cac9;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .contents-body{
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: #fafafa;
+            }
+
+            .description{
+                width: 367.35px;
+                font-size: 23px;
+                text-align: center;
+            }
+
+            .bar{
+                width: 79px;
+                height: 2px;
+                border-top: 3px solid black;
+
+            }
+
+            .cards{
+                width: 910px;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                /* align-content: space-between; */
+            }
+
+            .card{
+                width: 280px;
+                height: 508.24px;
+            }
+
+            .card-img-top{
+                height: 280px;
+                align-items: center;
+                background-color: #fff;
+            }
+
+            .card-img-top img{
+                width: 280px;
+                height: 128.792px;
+            }
+
+            .card-content{
+                height: 226px;
+                padding-top: 31px;
+                padding-bottom: 35px;
+                flex-direction: column;
+                background-color: rgb(216 209 208);
+            }
+
+            .buy{
+                border: 0.698px solid black;
+                width: 224px;
+            }
+
+            .about{
+                width: 100%;
+                padding: 0;
+                margin: 0px;
+                justify-content: center;
+                
+            }
+
+            .aboutme{
+                width: 100%
+            }
+
+            .product{
+                flex-direction: row;
+                align-items: center;
+                height: 473px;
+                padding: 0px;
+                justify-content: space-around;
+            }
+
+            .product-card{
+                width: 270px;
+                height: 258px;
+                text-align: center;
+                border: 2px solid black;
+            }
+
+            .contact-form{
+                height: 664px;
+                background-color: #b0aaa9;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .form{
+                width: 659px;
+                height: 575px;
+                background-color: #ffffff;
+            }
+
+            .form .container{
+                display: grid;
+                grid-template-rows: 99px 49px auto;
+                height: 100%;
+            }
+
+            .foot{
+                height: 161.677px;
+                background-color: #2f2e2e;
+            }
+
+            .col1{
+                place-self: end center;
+                text-align: center;
+                font-size: 34px;
+            }
+
+            .col2{
+                place-self: start center;
+                text-align: center;
+                font-size: 24px;
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
+            .form-table{
+                align-items: start;
+                justify-items: center;
+            }
+
+            .form-table .container{
+                width: 560px;
+                height: 258px;
+                grid-template-rows: 25% 25% 50%;
+                display: grid;
+            }
+
+
+            .form-table .container div{
+                display: flex;
+                align-items: center;
+                height: 100%;
+                border: 1px solid black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png -->
+        <!-- https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg -->
+        <div class="container-fluid banner">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="d-flex">
+                    <a class="navbar-brand" href="#">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#">Features</a>
+                            <a class="nav-item nav-link" href="#">Pricing</a>
+                            <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="d-flex title">
+                <img src="https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png"></img>
+            </div>
+        </div>
+        <div class="d-flex container-fluid contents-body mt-5">
+            <div class="collection d-flex mb-5">
+                <h2 class="mb-4">SHOP OUR COLLECTION</h2>
+                <div class="bar mb-4"></div>
+                <div class="description">our collection of curtain hardware we design with passion</div>
+            </div>
+            <div class="d-flex container cards">
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about d-flex">
+            <video  class="aboutme" autoplay loop muted>
+                <source src="https://video.wixstatic.com/video/11062b_fae1d456c92348a599ffb230a447bd1c/1080p/mp4/file.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="d-flex container-fluid product">
+            <div class="product-card">
+                Finials for Curtain Rods
+            </div>
+            <div class="product-card">
+                Finials for Curtain Rods
+            </div>
+            <div class="product-card">
+                Finials for Curtain Rods
+            </div>
+        </div>
+        <div class="d-flex contact-form">
+                <div class="form">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col1">Contact us</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col2">
+                                <div class="mt-3" style="width: 36px; height:2px; border-bottom:3px solid black"></div>
+                                <div>info@ivilon.com</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 d-flex form-table">
+                                <div class="container mt-5">
+                                    <div class="row">
+                                        <div class="col-md-6">First Name</div>
+                                        <div class="col-md-6">Last Name</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">First Name</div>
+                                        <div class="col-md-6">Last Name</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">First Name</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="d-flex foot">
+        </div>
+
+    </body>
+</html>
