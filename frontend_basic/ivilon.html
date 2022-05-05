@@ -139,6 +139,15 @@
             .foot{
                 height: 161.677px;
                 background-color: #2f2e2e;
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+            }
+
+            .foot div{
+                display: flex;
+                justify-content: center;
+                color:#ffffff;
             }
 
             .col1{
@@ -283,23 +292,37 @@
                             <div class="col-md-12 d-flex form-table">
                                 <div class="container mt-5">
                                     <div class="row">
-                                        <div class="col-md-6">First Name</div>
-                                        <div class="col-md-6">Last Name</div>
+                                        <div class="col-md-6"><input placeholder="First Name" style="border-width: 0px; outline: none;"></input></div>
+                                        <div class="col-md-6"><i>Last Name</i></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">First Name</div>
-                                        <div class="col-md-6">Last Name</div>
+                                        <div class="col-md-6"><i>Email</i></div>
+                                        <div class="col-md-6"><i>Order#</i></div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">First Name</div>
+                                    <div class="row" style="justify-items: start; align-items: flex-start;">
+                                        <div class="col-md-12" ><i>Type your message here...</i>
+                                        </div>
+                                        <div class="col-md-4 bg-dark mt-3" style="height: 52px;">I'm not a robot</div>
+                                        <div class="col-md-3 bg-dark mt-3 col-md-offset-5" style="height: 52px;">Submit</div>
+
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
         </div>
         <div class="d-flex foot">
+            <div>
+                <img class="m-2" src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e0678ef25486466ba65ef6ad47b559e1.png"></img>
+                <img class="m-2" src="https://static.wixstatic.com/media/767689ba34f143a1a36e49b5f2fbe31a.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/767689ba34f143a1a36e49b5f2fbe31a.png"></img>
+                <img class="m-2" src="https://static.wixstatic.com/media/17f992598001435083075924d7b6ae80.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/17f992598001435083075924d7b6ae80.png"></img>
+            </div>
+            <div>
+                2016 Created By Ivilon
+            </div>
+
         </div>
 
     </body>
