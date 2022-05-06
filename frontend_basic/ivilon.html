@@ -10,6 +10,7 @@
                 background-image: url('https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg');
                 /* background: transparent; */
                 background-attachment: fixed;
+                opacity: 0.5;
                 padding: 0;
             }
 
@@ -101,6 +102,16 @@
                 width: 224px;
             }
 
+            input{
+                border: none;
+                outline: none;
+            }
+            
+            textarea{
+                border: none;
+                outline: none;
+            }
+
             .about{
                 width: 100%;
                 padding: 0;
@@ -148,7 +159,9 @@
                 width: 270px;
                 height: 258px;
                 text-align: center;
-                border: 2px solid black;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
             }
 
             .contact-form{
@@ -166,7 +179,8 @@
 
             .form .container{
                 display: grid;
-                grid-template-rows: 99px 49px auto;
+                grid-template-rows: repeat(4, min-content) 1fr;
+                grid-template-columns: 100%;
                 height: 100%;
             }
 
@@ -185,29 +199,39 @@
             }
 
             .col1{
-                place-self: end center;
+                place-self: center center;
                 text-align: center;
                 font-size: 34px;
+                width: 304px;
+                height: 41px;
+                margin-top: 59px;
+                align-content: center;
+                line-height: 40px;
             }
 
             .col2{
                 place-self: start center;
                 text-align: center;
                 font-size: 24px;
-                display: flex;
                 flex-direction: column-reverse;
+                width: 310px;
+                height: 29.333px;
+                margin-bottom: 20px;
                 align-items: center;
             }
 
             .form-table{
                 align-items: start;
                 justify-items: center;
+                width: 630px;
+                height: 415px;
             }
 
-            .form-table .container{
+            /* .form-table .container{
                 width: 560px;
                 height: 258px;
-                grid-template-rows: 25% 25% 50%;
+                grid-template-rows: repeat(4, min-content) 1fr;
+                grid-template-columns: 100%;
                 display: grid;
             }
 
@@ -217,11 +241,94 @@
                 align-items: center;
                 height: 100%;
                 border: 1px solid black;
+            } */
+
+            .row1, .row2{
+                width: 100%;
+                height: 66px;
+                justify-content: center;
+                align-items: flex-end;
+            }
+
+            .row3{
+                width: 100%;
+                height: 145px;
+                justify-content: center;
+
+            }
+
+            .row4{
+                width: 100%;
+                justify-content: center;
+            }
+
+
+            .form-table .row1{
+                margin-top: 31px;
+            }
+
+            /* .form-table .row2{
+
+            } */
+
+            .cols{
+                width:280px; 
+                height:100%; 
+            }
+
+
+            .col-left{
+                border-left: 2px solid black;
+                border-right: 1px solid black;
+            }
+
+            .col-right{
+                border-left: 1px solid black;
+                border-right: 2px solid black;
+            }
+
+            .col-mid{
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+            }
+
+            .col-top{
+                border-top: 2px solid black;
+                border-bottom: 1px solid black;
+            }
+
+            .col-bottom{
+                width:560px;
+                height: 126px;
+                border-top: 1px solid black;
+                border-left: 2px solid black;
+                border-right: 2px solid black;
+                border-bottom: 2px solid black;
+                margin-bottom: 19px;
             }
 
             .navbar{
                 justify-content: center;
                 
+            }
+
+            .buy:hover{
+                border: 2px solid black;
+            }
+
+            #product1:hover{
+                opacity: 0;
+                transition: 1s;
+            }
+
+            #product2:hover{
+                opacity: 0;
+                transition: 1s;
+            }
+
+            #product3:hover{
+                opacity: 0;
+                transition: 1s;
             }
 
             .nav-item{
@@ -264,28 +371,30 @@
                 justify-content: center;
             }
 
+            
+
         </style>
     </head>
     <body>
         <!-- https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png -->
         <!-- https://static.wixstatic.com/media/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg/v1/fill/w_1289,h_1335,al_b,q_85,enc_auto/a858c7_0c8cd4cb13b747ecac8c4fe16ee515fd~mv2_d_2000_1335_s_2.jpg -->
-        <div class="container-fluid banner">
-            <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-dark">
-                <div class="d-flex">
-                    <!-- <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="#" style="color: #fff;">HOME<span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#" style="color: #fff;">COLLECTION</a>
-                            <a class="nav-item nav-link" href="#" style="color: #fff;">ABOUT US</a>
-                            <a class="nav-item nav-link disabled" href="#" style="color: #fff;">CONTACT</a>
-                        </div>
+        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-dark">
+            <div class="d-flex">
+                <!-- <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#" style="color: #fff;">HOME<span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#" style="color: #fff;">COLLECTION</a>
+                        <a class="nav-item nav-link" href="#" style="color: #fff;">ABOUT US</a>
+                        <a class="nav-item nav-link disabled" href="#" style="color: #fff;">CONTACT</a>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
+        <div class="container-fluid banner">
             <div class="d-flex title"> 
                 <img src="https://static.wixstatic.com/media/a858c7_57fde3fb75ec4e0c819b53624294203b.png/v1/fill/w_486,h_243,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a858c7_57fde3fb75ec4e0c819b53624294203b.png"></img>
             </div>
@@ -346,6 +455,32 @@
                         <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                        <div class="image_overlay">
+                            <div class="image_title">Available in more options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-top d-flex">
+                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                        <div class="image_overlay">
+                            <div class="image_title">Available in more options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="about container-fluid">
@@ -375,46 +510,57 @@
             </div>
         </div>
         <div class="d-flex container-fluid product">
-            <div class="product-card">
-                Finials for Curtain Rods
+            <div class="product-card shadow d-flex">
+                <img id="product1" src="https://static.wixstatic.com/media/a858c7_e99f6df37e3f422bbf27d46b999cdece~mv2_d_4000_4000_s_4_2.jpg/v1/fill/w_267,h_267,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a858c7_e99f6df37e3f422bbf27d46b999cdece~mv2_d_4000_4000_s_4_2.jpg" style="width:178px; height:178px;"></img>
+                <div style="width: 250px; height: 65px;text-align: center;">Finials for Curtain Rods</div>
             </div>
-            <div class="product-card">
-                Finials for Curtain Rods
+            <div class="product-card shadow d-flex">
+                <img id="product2" src="https://static.wixstatic.com/media/a858c7_c54b402e79af4959ace81698e34e05b2~mv2.jpg/v1/fill/w_267,h_267,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a858c7_c54b402e79af4959ace81698e34e05b2~mv2.jpg" style="width:178px; height:178px;"></img>
+                <div style="width: 250px; height: 65px;text-align: center;">Brackets for Curtain Rods</div>
             </div>
-            <div class="product-card">
-                Finials for Curtain Rods
+            <div class="product-card shadow d-flex">
+                <img id="product3" src="https://static.wixstatic.com/media/a858c7_0534acce64024a889cc41100a37dea57~mv2.jpg/v1/fill/w_267,h_267,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a858c7_0534acce64024a889cc41100a37dea57~mv2.jpg" style="width:178px; height:178px;"></img>
+                <div style="width: 250px; height: 65px;text-align: center;">Curtain Rings</div>
             </div>
         </div>
         <div class="d-flex contact-form">
                 <div class="form">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 col1">Contact us</div>
+                        <div class="row" style="justify-content: center;">
+                            <div class="col1">Contact us</div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12 col2">
-                                <div class="mt-3" style="width: 36px; height:2px; border-bottom:3px solid black"></div>
-                                <div>info@ivilon.com</div>
+                        <div class="row" style="flex-direction: column;justify-items: center; align-content: center; align-items: center;">
+                            <div class="col2">
+                                info@ivilon.com
                             </div>
+                            <div style="width: 36px; height: 2px; border-top: 3px solid black; margin-bottom: 2px"></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 d-flex form-table">
-                                <div class="container mt-5">
-                                    <div class="row">
-                                        <div class="col-md-6"><input placeholder="First Name" style="border-width: 0px; outline: none;"></input></div>
-                                        <div class="col-md-6"><i>Last Name</i></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6"><i>Email</i></div>
-                                        <div class="col-md-6"><i>Order#</i></div>
-                                    </div>
-                                    <div class="row" style="justify-items: start; align-items: flex-start;">
-                                        <div class="col-md-12" ><i>Type your message here...</i>
-                                        </div>
+                            <div class="container form-table">
+                                <div class="row row1">
+                                    <div class="cols col-top col-left"><input placeholder="First Name"></input></div>
+                                    <div class="cols col-top col-right""><input placeholder="Last Name"></input></div>
+                                </div>
+                                <div class="row row2">
+                                    <div class="cols col-mid col-left"><input placeholder="Email"><input></div>
+                                    <div class="cols col-mid col-right"><input placeholder="Order#"><input></div>
+                                </div>
+                                <div class="row row3">
+                                    <div class="col-bottom">
+                                        <textarea placeholder="Type your message here ..."></textarea>
                                     </div>
                                 </div>
-                            </div>
-                            
+                                <div class="row row4">
+                                    <div
+                                        class="g-recaptcha"
+                                        style="transform: scale(0.7); 
+                                        -webkit-transform: scale(0.7); transform-origin: 0 0;
+                                        -webkit-transform-origin: 0 0;"
+                                        data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                                    ></div>
+                                    <div style="width: 186px; height: 52px; background-color: rgb(55 59 77); text-align: center; color: #ffffff; line-height: 52px;">Submit</div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
