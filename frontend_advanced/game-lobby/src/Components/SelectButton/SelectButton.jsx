@@ -4,49 +4,41 @@ import "./SelectButton.css";
 import Context from "../../Context/context";
 
 export default function SelectButton(props) {
-  const { users, setUsers } = React.useContext(Context);
+  const { colors, setColors } = React.useContext(Context);
+
+  const acc = { ...colors };
 
   const handleChange = (event) => {
-    const acc = users;
-    let i = 0;
-    let curr = 0;
-
-    for (i = 0; i < users.length; i++) {
-      if (users[i].color === event.target.value) {
-        return;
-      }
-    }
-    // acc[i] = {...}
-    // setUsers(acc)
-    // for (i = 0; i < users.length; i++) {
-    //   if (users[i].id === props.id) {
-    //     acc.push({ id: users[i].id, color: event.target.value });
-    //     break;
-    //   }
-    //   acc.push(users[i]);
-    // }
-    // for (curr = i + 1; curr < users.length; curr++) {
-    //   acc.push(users[curr]);
-    // }
-    // for(const u of users)
-    setUsers(acc);
+    const usercolor = acc.users[props.id];
+    acc.users[props.id] = event.target.value;
+    acc[usercolor] = true;
+    acc[event.target.value] = false;
+    setColors(acc);
   };
 
   return (
     <FormControl variant="outlined" size="medium" margin="normal">
       <Select
         variant="filled"
-        value={users[props.id].color}
+        value={colors.users[props.id]}
         label="Color"
         onChange={handleChange}
       >
-        <MenuItem value={"white"} disabled>
+        <MenuItem value={"white"} disabled={!acc["white"]}>
           White
         </MenuItem>
-        <MenuItem value={"blue"}>Blue</MenuItem>
-        <MenuItem value={"red"}>Red</MenuItem>
-        <MenuItem value={"yellow"}>Yellow</MenuItem>
-        <MenuItem value={"green"}>Green</MenuItem>
+        <MenuItem value={"blue"} disabled={!acc["blue"]}>
+          Blue
+        </MenuItem>
+        <MenuItem value={"red"} disabled={!acc["red"]}>
+          Red
+        </MenuItem>
+        <MenuItem value={"yellow"} disabled={!acc["yellow"]}>
+          Yellow
+        </MenuItem>
+        <MenuItem value={"green"} disabled={!acc["green"]}>
+          Green
+        </MenuItem>
       </Select>
     </FormControl>
   );
