@@ -106,11 +106,34 @@
                 padding: 0;
                 margin: 0px;
                 justify-content: center;
+                height: 775px;
                 
             }
 
             .aboutme{
-                width: 100%
+                width: 100%;
+                height: 100%;
+            }
+
+            .aboutUs{
+                background-color: #ffffff;
+                width: 659px;
+                height: 532px;
+                position: relative;
+                top: -663px;
+                left: 302px;
+                margin: 0px;
+                align-items: center;
+                justify-content: center;
+                grid-template-rows: repeat(2, min-content) 1fr;
+                grid-template-columns: 100%;
+                
+            }
+
+            .aboutus{
+                height: 100%;
+                justify-content: center;
+                align-items: center;
             }
 
             .product{
@@ -236,6 +259,11 @@
                 transform: translateY(0)
             }
 
+            .icons{
+                margin-top: 580px;
+                justify-content: center;
+            }
+
         </style>
     </head>
     <body>
@@ -308,7 +336,7 @@
                         <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;">Buy now on Amazon</div>
                     </div>
                 </div>
-                <div class="card mb-5">
+                <div class="card">
                     <div class="card-img-top d-flex">
                         <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                     </div>
@@ -320,10 +348,31 @@
                 </div>
             </div>
         </div>
-        <div class="about d-flex">
-            <video  class="aboutme" autoplay loop muted>
+        <div class="about container-fluid">
+            <!-- <video  class="aboutme" autoplay loop muted>
                 <source src="https://video.wixstatic.com/video/11062b_fae1d456c92348a599ffb230a447bd1c/1080p/mp4/file.mp4" type="video/mp4">
-            </video>
+            </video> -->
+            <div class="aboutus">
+                <video  class="aboutme" autoplay loop muted>
+                    <source src="https://video.wixstatic.com/video/11062b_fae1d456c92348a599ffb230a447bd1c/1080p/mp4/file.mp4" type="video/mp4">
+                </video>
+                <div class="aboutUs container-fluid">
+                    <div class="row" style="justify-content: center;">
+                        <div style="width: 396px; height: 40px; text-align: center; margin-top: 68px; margin-bottom: 13px;">
+                            <h2>ABOUT US</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="justify-content: center;">
+                        <div style="width: 36px; height: 2px; border-top: 3px solid black;margin-bottom: 29px;"></div>
+                    </div>
+                    <div class="row" style="justify-content: center;">
+                        <div style="text-align: center; font-size: 18px; width: 472px; text-align: center;">
+                            We are a reputed firm engaged in retailing and distributing a wide range of curtain rods and window hardware.<br/><br/>
+                            With our valuable experience of 15 years in the domain, our products are known for their superior durability, easy installation and perfect finish, which are suitable to be installed at commercial and domestic establishments. We manufacture these products using premium grade raw material as per the set industrial standards. Our range of curtain rods enhances the beauty of interiors of households, hotels, offices, showroom, and houses.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="d-flex container-fluid product">
             <div class="product-card">
