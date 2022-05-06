@@ -1,23 +1,17 @@
-import './App.css';
-import Containers from "./Components/game_loby";
-import Helloworld from "./Components/Helloworld"
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-
-
+import "./App.css";
+import GameLoby from "./Components/GameLoby/game_loby";
+import Helloworld from "./Components/Helloworld";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-
-
-
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path='/' element={<Containers/>}/>
-          <Route path='/helloworld'  element={<Helloworld/>}/>
+          <Route path="/" element={<GameLoby />} />
+          <Route path="/helloworld" element={<Helloworld />} />
         </Routes>
       </div>
-
     </Router>
   );
 }

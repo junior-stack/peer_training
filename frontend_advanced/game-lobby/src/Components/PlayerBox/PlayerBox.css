@@ -1,0 +1,19 @@
+.title {
+  border-bottom: 2px solid black;
+  height: 30%;
+}
+
+.outside {
+  width: 30%;
+  border: 5px solid black;
+  display: inline-block;
+  margin: 5%;
+  justify-content: space-between;
+  min-height: 15em;
+  border-radius: 5%;
+}
+
+.optionBox {
+  width: 100%;
+  height: 100%;
+}
