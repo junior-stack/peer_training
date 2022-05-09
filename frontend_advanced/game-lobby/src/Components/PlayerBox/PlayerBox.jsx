@@ -1,10 +1,10 @@
 import "./PlayerBox.css";
 import SelectButton from "../SelectButton/SelectButton";
 import { useContext } from "react";
-import userContext from "../../Context/userContext";
+import ColorContext from "../../Context/ColorContext";
 
 const PlayerBox = (props) => {
-  const { users } = useContext(userContext);
+  const { users } = useContext(ColorContext);
   return (
     <div className="outside" style={{ background: users[props.id] }}>
       <div className="title">

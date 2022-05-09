@@ -1,5 +1,5 @@
 import React from "react";
-const colorContext = React.createContext({
+const ColorContext = React.createContext({
   usedColors: {
     white: false,
     blue: true,
@@ -9,6 +9,9 @@ const colorContext = React.createContext({
   },
 
   setUsedColors: () => {},
+
+  users: [],
+  setUsers: () => {},
 });
 
-export default colorContext;
+export default ColorContext;

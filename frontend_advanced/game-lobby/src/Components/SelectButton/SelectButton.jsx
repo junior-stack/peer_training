@@ -1,12 +1,11 @@
 import * as React from "react";
 import { MenuItem, FormControl, Select } from "@material-ui/core";
 import "./SelectButton.css";
-import userContext from "../../Context/userContext";
-import colorContext from "../../Context/colorContext";
+import ColorContext from "../../Context/ColorContext";
 
 export default function SelectButton(props) {
-  const { users, setUsers } = React.useContext(userContext);
-  const { usedColors, setusedColors } = React.useContext(colorContext);
+  const { users, setUsers, usedColors, setUsedColors } =
+    React.useContext(ColorContext);
 
   const newUsers = [...users];
   const newColors = { ...usedColors };
@@ -17,7 +16,7 @@ export default function SelectButton(props) {
     newColors[usercolor] = true;
     newColors[event.target.value] = false;
     setUsers(newUsers);
-    setusedColors(newColors);
+    setUsedColors(newColors);
   };
 
   return (
