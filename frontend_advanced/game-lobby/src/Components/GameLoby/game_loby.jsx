@@ -1,8 +1,6 @@
-import { useMemo, useState } from "react";
 import PlayerBox from "../PlayerBox/PlayerBox";
 import React from "react";
 import Container from "@material-ui/core/Container";
-import Context from "../../Context/context";
 import "./game_loby.css";
 
 const GameLoby = (props) => {

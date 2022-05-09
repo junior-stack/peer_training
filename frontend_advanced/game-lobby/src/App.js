@@ -2,32 +2,36 @@ import "./theme/App.css";
 import GameLoby from "./Components/GameLoby/game_loby";
 import Helloworld from "./Components/Helloworld";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useMemo, useState } from "react";
-import Context from "./Context/context";
+import { useState } from "react";
+import userContext from "./Context/userContext";
+import colorContext from "./Context/colorContext";
 
 function App() {
-  const [colors, setColors] = useState({
-    users: ["white", "white", "white", "white"],
+  const [users, setUsers] = useState(["white", "white", "white", "white"]);
+  const usersValue = { users, setUsers };
+
+  const [usedColors, setusedColors] = useState({
     white: false,
     blue: true,
     red: true,
     green: true,
     yellow: true,
   });
-
-  const value = useMemo(() => ({ colors, setColors }), [colors]);
+  const colorsValue = { usedColors, setusedColors };
 
   return (
-    <Context.Provider value={value}>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<GameLoby />} />
-            <Route path="/helloworld" element={<Helloworld />} />
-          </Routes>
-        </div>
-      </Router>
-    </Context.Provider>
+    <userContext.Provider value={usersValue}>
+      <colorContext.Provider value={colorsValue}>
+        <Router>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<GameLoby />} />
+              <Route path="/helloworld" element={<Helloworld />} />
+            </Routes>
+          </div>
+        </Router>
+      </colorContext.Provider>
+    </userContext.Provider>
   );
 }
 
