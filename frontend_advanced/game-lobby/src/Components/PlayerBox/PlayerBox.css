@@ -3,14 +3,28 @@
   height: 30%;
 }
 
-.outside {
-  width: 30%;
-  border: 5px solid black;
-  display: inline-block;
-  margin: 5%;
-  justify-content: space-between;
-  min-height: 15em;
-  border-radius: 5%;
+@media screen and (max-width: 768px) {
+  .outside {
+    width: 60%;
+    border: 5px solid black;
+    display: inline-block;
+    margin: 5%;
+    justify-content: space-between;
+    min-height: 15em;
+    border-radius: 5%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .outside {
+    width: 30%;
+    border: 5px solid black;
+    display: inline-block;
+    margin: 5%;
+    justify-content: space-between;
+    min-height: 15em;
+    border-radius: 5%;
+  }
 }
 
 .optionBox {
