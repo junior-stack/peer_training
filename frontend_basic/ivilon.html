@@ -84,10 +84,6 @@
                 position: relative;
             }
 
-            .card-img-top img{
-                width: 280px;
-                height: 128.792px;
-            }
 
             .card-content{
                 height: 226px;
@@ -337,32 +333,52 @@
 
             .image_overlay{
                 position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* opacity: 0; */
+                transition: 1s;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+
+            .image_overlay img{
+                width: 280px;
+                height: 128.792px;
+                position: absolute;
+                left: 0;
+                top: 76px;
+                z-index: 2;
+            }
+
+            .image_overlay .image_title{
+                position: absolute;
                 top: 250px;
                 left: 0;
                 width: 100%;
                 height: 30px;
-                opacity: 0;
-                transition: 1s;
-                overflow: hidden;
-            }
-
-            .image_overlay .image_title{
-                height: 30px;
                 background-color: rgb(47,46,46);
                 color: #ffffff;
                 text-align: center;
+                opacity: 0;
             }
 
-            .image_overlay:hover{
+            /* .image_overlay:hover{
+                opacity: 1;
+            } */
+
+            .image_overlay:hover .image_title{
                 opacity: 1;
             }
 
-            .image_overlay > *{
+            .image_overlay .image_title{
                 transform: translateY(30px);
                 transition: 1s;
             }
 
-            .image_overlay:hover > * {
+            .image_overlay:hover .image_title{
                 transform: translateY(0)
             }
 
@@ -391,7 +407,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link active" href="#" style="color: #fff;">HOME<span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#collections" style="color: #fff;">COLLECTION</a>
+                        <a class="nav-item nav-link" href="#c" style="color: #fff;">COLLECTION</a>
                         <a class="nav-item nav-link" href="#abouts" style="color: #fff;">ABOUT US</a>
                         <a class="nav-item nav-link" href="#contacts" style="color: #fff;">CONTACT</a>
                     </div>
@@ -407,9 +423,9 @@
                 <img class="m-2" src="https://static.wixstatic.com/media/767689ba34f143a1a36e49b5f2fbe31a.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/767689ba34f143a1a36e49b5f2fbe31a.png"></img>
                 <img class="m-2" src="https://static.wixstatic.com/media/17f992598001435083075924d7b6ae80.png/v1/fill/w_45,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/17f992598001435083075924d7b6ae80.png"></img>
             </div>
-
         </div>
-        <div id="collections" class="d-flex container-fluid contents-body mt-5">
+        <div id="c" style="margin: 0; padding: 0; height: 64px;"></div>
+        <div class="d-flex container-fluid contents-body">
             <div class="collection d-flex mb-5">
                 <h2 class="mb-4">SHOP OUR COLLECTION</h2>
                 <div class="bar mb-4"></div>
@@ -418,28 +434,34 @@
             <div class="d-flex container cards">
                 <div class="card mb-5">
                     <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card-footer card-content d-flex">
-                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
-                        <div class="mt-3" style="text-align: center">$31.87</div>
-                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
-                    </div>
-                </div>
-                <div class="card mb-5">
-                    <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card-footer card-content d-flex">
-                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
-                        <div class="mt-3" style="text-align: center">$31.87</div>
-                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
-                    </div>
-                </div>
-                <div class="card mb-5">
-                    <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                         <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                            <div class="image_title">Available in more options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                            <div class="image_title">Available in more options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-img-top d-flex">
+                        <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                             <div class="image_title">Available in more options</div>
                         </div>
                     </div>
@@ -451,18 +473,8 @@
                 </div>
                 <div class="card">
                     <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card-footer card-content d-flex">
-                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
-                        <div class="mt-3" style="text-align: center">$31.87</div>
-                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                         <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                             <div class="image_title">Available in more options</div>
                         </div>
                     </div>
@@ -474,8 +486,21 @@
                 </div>
                 <div class="card">
                     <div class="card-img-top d-flex">
-                        <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                         <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
+                            <div class="image_title">Available in more options</div>
+                        </div>
+                    </div>
+                    <div class="card-footer card-content d-flex">
+                        <div class="pb-2" style="width:230px; text-align: center;">Ivilon Drapery Treatment Window Curtain Rod - Acrylic</div>
+                        <div class="mt-3" style="text-align: center">$31.87</div>
+                        <div class="buy mt-3 pt-2 pb-2 mb-2" style="text-align: center;"><a href="https://www.amazon.com/dp/B07GY3FD2W?tag=wixlabs1234-20&linkCode=ogi&th=1&psc=1"  target="_blank">Buy now on Amazon</a></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img-top d-flex">
+                        <div class="image_overlay">
+                            <img src="https://m.media-amazon.com/images/I/21Erq7u3BXL._SL500_.jpg" alt="Card image cap">
                             <div class="image_title">Available in more options</div>
                         </div>
                     </div>
