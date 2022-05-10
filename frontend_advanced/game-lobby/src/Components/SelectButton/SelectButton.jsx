@@ -2,6 +2,8 @@ import * as React from "react";
 import { MenuItem, FormControl, Select } from "@material-ui/core";
 import "./SelectButton.css";
 import ColorContext from "../../Context/ColorContext";
+import { db } from "../../Firebase";
+import { getDocs, collection, doc, updateDoc } from "firebase/firestore"
 
 export default function SelectButton(props) {
   const { users, setUsers, usedColors, setUsedColors } =
@@ -10,11 +12,13 @@ export default function SelectButton(props) {
   const newUsers = [...users];
   const newColors = { ...usedColors };
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     const usercolor = users[props.id];
     newUsers[props.id] = event.target.value;
     newColors[usercolor] = true;
     newColors[event.target.value] = false;
+    const data = await getDocs(collection(db, "userColor"))
+    await updateDoc(doc(db, "userColor", data.docs[props.id].id), {color: event.target.value})
     setUsers(newUsers);
     setUsedColors(newColors);
   };
