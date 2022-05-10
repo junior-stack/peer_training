@@ -14,17 +14,19 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.navbar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
   font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 40px;
+  position: fixed;
 }
 
-.App-link {
+.navbar button {
+  width: 50px;
+  height: 100%;
   color: #61dafb;
 }
 
