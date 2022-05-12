@@ -2,8 +2,12 @@ import PlayerBox from "../PlayerBox/PlayerBox";
 import React from "react";
 import Container from "@material-ui/core/Container";
 import "./game_loby.css";
+import { useContext } from "react";
+import ColorContext from "../../Context/ColorContext";
 
 const GameLoby = (props) => {
+  const { users } = useContext(ColorContext);
+
   return (
     <Container>
       <div className="Container">
@@ -11,8 +15,8 @@ const GameLoby = (props) => {
           <h1>Game Lobby</h1>
         </div>
         <div>
-          {[0, 1, 2, 3].map((element) => {
-            return <PlayerBox key={element} id={element} />;
+          {Object.keys(users).map((element, Index) => {
+            return <PlayerBox key={Index} id={element} indice={Index} />;
           })}
         </div>
       </div>

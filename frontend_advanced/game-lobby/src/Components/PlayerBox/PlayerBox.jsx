@@ -8,7 +8,7 @@ const PlayerBox = (props) => {
   return (
     <div className="outside" style={{ background: users[props.id] }}>
       <div className="title">
-        <h1>P{props.id + 1}</h1>
+        <h1>P{props.indice + 1}</h1>
       </div>
       <SelectButton id={props.id} />
     </div>
