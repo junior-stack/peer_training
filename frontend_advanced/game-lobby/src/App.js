@@ -1,5 +1,5 @@
 import "./theme/App.css";
-import GameLoby from "./Components/GameLoby/game_loby";
+import GameLoby from "./Page/GameLobby/game_loby";
 import Helloworld from "./Components/Helloworld";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -8,6 +8,8 @@ import { useState } from "react";
 import SignIn from "./Page/SignUp/SignIn";
 
 function App() {
+  console.log("app");
+  console.log("curr user: ", auth.currentUser);
   const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
 

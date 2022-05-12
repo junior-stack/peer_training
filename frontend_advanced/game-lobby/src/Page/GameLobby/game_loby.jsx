@@ -1,4 +1,4 @@
-import PlayerBox from "../PlayerBox/PlayerBox";
+import PlayerBox from "./../../Components/PlayerBox/PlayerBox";
 import React from "react";
 import Container from "@material-ui/core/Container";
 import "./game_loby.css";
@@ -6,6 +6,7 @@ import { useContext } from "react";
 import ColorContext from "../../Context/ColorContext";
 
 const GameLoby = (props) => {
+  console.log("gamelobby");
   const { users } = useContext(ColorContext);
 
   return (
