@@ -6,6 +6,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "./Firebase";
 import { useState } from "react";
 import SignIn from "./Page/SignUp/SignIn";
+import UploadPage from "./Page/UploadPage";
 
 function App() {
   console.log("app");
@@ -37,6 +38,7 @@ function App() {
         />
         <Route path="/helloworld" element={<Helloworld />} />
         <Route path="/login" element={<SignIn setIsAuth={setIsAuth} />} />
+        <Route path="/upload" element={<UploadPage />} />
       </Routes>
     </div>
   );
