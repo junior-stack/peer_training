@@ -22,10 +22,32 @@ function App() {
     });
   };
 
+  const toGameLoby = () => {
+    navigate("/gamelobby");
+  };
+
+  const toUploadFile = () => {
+    navigate("/upload");
+  };
+
   return (
     <div className="App">
       <div className="navbar">
         <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
+        {auth.currentUser ? (
+          <div className="GameLobby" onClick={toGameLoby}>
+            Game Lobby
+          </div>
+        ) : (
+          ""
+        )}
+        {auth.currentUser ? (
+          <div className="UploadFile" onClick={toUploadFile}>
+            Upload a File
+          </div>
+        ) : (
+          ""
+        )}
         <div>
           {auth.currentUser ? <button onClick={signout}>Signout</button> : ""}
         </div>

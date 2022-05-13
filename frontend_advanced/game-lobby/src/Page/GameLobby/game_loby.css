@@ -3,3 +3,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.top {
+  height: 40px;
+  width: 100%;
+}

@@ -12,6 +12,7 @@ const GameLoby = (props) => {
   return (
     <Container>
       <div className="Container">
+        <div className="top"></div>
         <div>
           <h1>Game Lobby</h1>
         </div>

@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "../../Firebase";
+import { auth } from "../../Firebase";
 
 const FileUpload = () => {
   const [image, setImage] = useState(null);
+
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    const getProfile = httpsCallable(functions, "getProfile");
+    getProfile({ uid: auth.currentUser.uid }).then((result) => {
+      setUrl(result.data.url);
+    });
+  }, []);
 
   const handleChange = (e) => {
     console.log("hello");
@@ -39,7 +51,11 @@ const FileUpload = () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           const uploadPicture = httpsCallable(functions, "uploadPicture");
-          await uploadPicture({ uid: 0, color: downloadURL });
+          uploadPicture({
+            uid: auth.currentUser.uid,
+            url: downloadURL,
+          });
+          setUrl(downloadURL);
 
           // display the image using the download URL code below:
         });
@@ -48,10 +64,23 @@ const FileUpload = () => {
   };
 
   return (
-    <div>
-      Upload:
-      <input type="file" onChange={handleChange} />
-      <button onClick={handleUpload}>Upload</button>
+    <div className="wrapper">
+      <div>
+        <h1>Profile:</h1>
+      </div>
+      <div>
+        <input type="file" onChange={handleChange} />
+      </div>
+      <div>
+        <button onClick={handleUpload}>Submit</button>
+      </div>
+      <div>
+        <img
+          className="profilePic"
+          src={url}
+          alt="You have not uploaded a profile"
+        />
+      </div>
     </div>
   );
 };
