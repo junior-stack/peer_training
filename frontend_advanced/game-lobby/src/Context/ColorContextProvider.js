@@ -34,7 +34,6 @@ const ColorContextProvider = ({ children }) => {
       data.data.forEach((doc) => {
         newColors[doc.color] = false;
       });
-      console.log(newColors);
       setUsedColors(newColors);
     };
     getDocument();

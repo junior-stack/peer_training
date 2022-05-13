@@ -9,8 +9,6 @@ import SignIn from "./Page/SignUp/SignIn";
 import UploadPage from "./Page/UploadPage";
 
 function App() {
-  console.log("app");
-  console.log("curr user: ", auth.currentUser);
   const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
 
