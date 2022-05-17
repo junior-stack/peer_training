@@ -6,7 +6,7 @@ import { useContext } from "react";
 import ColorContext from "../../Context/ColorContext";
 
 const NavBar = () => {
-  const { setIsAuth } = useContext(ColorContext);
+  const { setIsAuth, userProfile } = useContext(ColorContext);
   const navigate = useNavigate();
 
   const signout = () => {
@@ -27,14 +27,15 @@ const NavBar = () => {
 
   return (
     <div className="navbar">
-      <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
       <div className="GameLobby" onClick={toGameLoby}>
         Game Lobby
       </div>
       <div className="UploadFile" onClick={toUploadFile}>
         Upload a File
       </div>
+      <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
       <div>
+        <img src={userProfile.url} />
         <button onClick={signout}>Signout</button>
       </div>
     </div>

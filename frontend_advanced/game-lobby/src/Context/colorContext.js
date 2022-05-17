@@ -13,6 +13,9 @@ const ColorContext = React.createContext({
   users: [],
   setUsers: () => {},
 
+  userProfile: {},
+  setUserProfile: () => {},
+
   isAuth: false,
   setIsAuth: () => {},
 });

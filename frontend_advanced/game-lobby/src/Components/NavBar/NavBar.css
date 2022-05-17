@@ -4,13 +4,25 @@
   align-items: flex-end;
   font-size: calc(10px + 2vmin);
   width: 100%;
-  height: 40px;
+  height: 64px;
   position: fixed;
   justify-content: space-around;
+  background-color: #444444;
+}
+
+.navbar div {
+  height: 100%;
+  line-height: normal;
+  color: white;
+}
+
+.navbar div img {
+  height: 32px;
+  width: 32px;
 }
 
 .navbar button {
-  height: 100%;
+  height: 70%;
   color: #61dafb;
 }
 
