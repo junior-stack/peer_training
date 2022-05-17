@@ -12,6 +12,9 @@ const ColorContext = React.createContext({
 
   users: [],
   setUsers: () => {},
+
+  isAuth: false,
+  setIsAuth: () => {},
 });
 
 export default ColorContext;

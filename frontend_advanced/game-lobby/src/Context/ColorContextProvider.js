@@ -14,6 +14,8 @@ const ColorContextProvider = ({ children }) => {
 
   const [userProfile, setUserProfile] = useState({});
 
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <ColorContext.Provider
       value={{
@@ -23,6 +25,8 @@ const ColorContextProvider = ({ children }) => {
         setUsers,
         userProfile,
         setUserProfile,
+        isAuth,
+        setIsAuth,
       }}
     >
       {children}
