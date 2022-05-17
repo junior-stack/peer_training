@@ -28,7 +28,9 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
-      <div className="GameLobby">Game Lobby</div>
+      <div className="GameLobby" onClick={toGameLoby}>
+        Game Lobby
+      </div>
       <div className="UploadFile" onClick={toUploadFile}>
         Upload a File
       </div>
