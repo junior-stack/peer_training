@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ColorContext from "./ColorContext";
 
 const ColorContextProvider = ({ children }) => {
@@ -12,9 +12,18 @@ const ColorContextProvider = ({ children }) => {
 
   const [users, setUsers] = useState({});
 
+  const [userProfile, setUserProfile] = useState({});
+
   return (
     <ColorContext.Provider
-      value={{ usedColors, setUsedColors, users, setUsers }}
+      value={{
+        usedColors,
+        setUsedColors,
+        users,
+        setUsers,
+        userProfile,
+        setUserProfile,
+      }}
     >
       {children}
     </ColorContext.Provider>

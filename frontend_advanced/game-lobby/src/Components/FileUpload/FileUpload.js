@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { storage } from "../../Firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "../../Firebase";
 import { auth } from "../../Firebase";
+import ColorContext from "../../Context/ColorContext";
 
 const FileUpload = () => {
   const [image, setImage] = useState(null);
 
-  const [url, setUrl] = useState("");
-
-  useEffect(() => {
-    const getProfile = httpsCallable(functions, "getProfile");
-    getProfile({ uid: auth.currentUser.uid }).then((result) => {
-      setUrl(result.data.url);
-    });
-  }, []);
+  const { userProfile, setUserProfile } = useContext(ColorContext);
 
   const handleChange = (e) => {
     console.log("hello");
@@ -55,7 +49,7 @@ const FileUpload = () => {
             uid: auth.currentUser.uid,
             url: downloadURL,
           });
-          setUrl(downloadURL);
+          setUserProfile({ url: downloadURL });
 
           // display the image using the download URL code below:
         });
@@ -77,7 +71,7 @@ const FileUpload = () => {
       <div>
         <img
           className="profilePic"
-          src={url}
+          src={userProfile.url}
           alt="You have not uploaded a profile"
         />
       </div>

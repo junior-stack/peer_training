@@ -15,7 +15,7 @@ const SignIn = ({ setIsAuth }) => {
 
   const userData = {};
 
-  const { setUsers, setUsedColors } = useContext(ColorContext);
+  const { setUsers, setUsedColors, setUserProfile } = useContext(ColorContext);
 
   const getDocument = async () => {
     const getAllColors = httpsCallable(functions, "getAllColors");
@@ -37,12 +37,20 @@ const SignIn = ({ setIsAuth }) => {
     setUsedColors(newColors);
   };
 
+  const getUserProfile = async () => {
+    const getProfile = httpsCallable(functions, "getProfile");
+    getProfile({ uid: auth.currentUser.uid }).then((result) => {
+      setUserProfile({ url: result.data.url });
+    });
+  };
+
   const sign = async () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (result) => {
         localStorage.setItem("isAuth", true);
         setIsAuth(true);
         await getDocument();
+        await getUserProfile();
         navigate("/gamelobby");
       })
       .catch((error) => {
