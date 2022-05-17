@@ -58,7 +58,10 @@ function App() {
         />
         <Route path="/helloworld" element={<Helloworld />} />
         <Route path="/login" element={<SignIn setIsAuth={setIsAuth} />} />
-        <Route path="/upload" element={<UploadPage />} />
+        <Route
+          path="/upload"
+          element={isAuth ? <UploadPage /> : <Navigate to="/login" />}
+        />
       </Routes>
     </div>
   );
