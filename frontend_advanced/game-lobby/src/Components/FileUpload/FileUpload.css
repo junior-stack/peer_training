@@ -13,3 +13,16 @@
   max-width: 100%;
   object-fit: contain;
 }
+
+.inputfile {
+  display: flexbox;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+button.Submit {
+  position: relative;
+  top: -10px;
+  left: -15px;
+}

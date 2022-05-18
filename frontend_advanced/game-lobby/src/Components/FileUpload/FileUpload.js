@@ -5,9 +5,12 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "../../Firebase";
 import { auth } from "../../Firebase";
 import ColorContext from "../../Context/ColorContext";
+import { CircularProgress } from "@material-ui/core";
 
 const FileUpload = () => {
   const [image, setImage] = useState(null);
+
+  const [progress, setProgress] = useState(0);
 
   const { userProfile, setUserProfile } = useContext(ColorContext);
 
@@ -26,9 +29,10 @@ const FileUpload = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Upload is " + progress + "% done");
+        console.log("bytes transferred: ", snapshot.bytesTransferred);
+        setProgress(
+          Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+        );
         switch (snapshot.state) {
           case "paused":
             console.log("Upload is paused");
@@ -63,10 +67,20 @@ const FileUpload = () => {
         <h1>Profile:</h1>
       </div>
       <div>
-        <input type="file" onChange={handleChange} />
+        <div>
+          <input type="file" onChange={handleChange} />
+        </div>
       </div>
-      <div>
-        <button onClick={handleUpload}>Submit</button>
+      <div className="inputfile">
+        <div>
+          <button
+            onClick={handleUpload}
+            style={{ position: "relative", top: -10, left: -15 }}
+          >
+            Submit
+          </button>
+          <CircularProgress variant="determinate" value={progress} />
+        </div>
       </div>
       <div>
         <img
