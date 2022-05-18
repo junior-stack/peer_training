@@ -49,8 +49,8 @@ const SignIn = ({ setIsAuth }) => {
       .then(async (result) => {
         localStorage.setItem("isAuth", true);
         setIsAuth(true);
-        await getDocument();
-        await getUserProfile();
+        getDocument();
+        getUserProfile();
         navigate("/gamelobby");
       })
       .catch((error) => {

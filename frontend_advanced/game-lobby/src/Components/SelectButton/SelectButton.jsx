@@ -18,7 +18,7 @@ export default function SelectButton(props) {
     newColors[usercolor] = true;
     newColors[event.target.value] = false;
     const updateColors = httpsCallable(functions, "updateColor");
-    await updateColors({ uid: props.id, color: event.target.value });
+    updateColors({ uid: props.id, color: event.target.value });
     setUsers(newUsers);
     setUsedColors(newColors);
   };
