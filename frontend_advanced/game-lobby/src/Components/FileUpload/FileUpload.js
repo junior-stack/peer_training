@@ -1,11 +1,7 @@
 import React, { useContext, useState } from "react";
-import { storage } from "../../Firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
-import { httpsCallable } from "firebase/functions";
-import { functions } from "../../Firebase";
-import { auth } from "../../Firebase";
 import ColorContext from "../../Context/ColorContext";
 import { CircularProgress } from "@material-ui/core";
+import { updatePic } from "../../API/api";
 
 const FileUpload = () => {
   const [image, setImage] = useState(null);
@@ -22,43 +18,28 @@ const FileUpload = () => {
     }
   };
 
-  const handleUpload = () => {
-    const uploadRef = ref(storage, `images/${image.name}`);
-    const uploadTask = uploadBytesResumable(uploadRef, image);
+  const uploadFile = () => {
+    let data = new FormData();
+    data.append("userID", userProfile.userID);
+    data.append("file", image);
 
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        console.log("bytes transferred: ", snapshot.bytesTransferred);
-        setProgress(
-          Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-        );
-        switch (snapshot.state) {
-          case "paused":
-            console.log("Upload is paused");
-            break;
-          case "running":
-            console.log("Upload is running");
-            break;
-        }
+    const options = {
+      onUploadProgress: (ProgressEvent) => {
+        const { loaded, total } = ProgressEvent;
+        let percent = Math.floor((loaded * 100) / total);
+        setProgress(percent);
       },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          const uploadPicture = httpsCallable(functions, "uploadPicture");
-          uploadPicture({
-            uid: auth.currentUser.uid,
-            url: downloadURL,
-          });
-          setUserProfile({ url: downloadURL });
+      withCredentials: true,
+    };
 
-          // display the image using the download URL code below:
-        });
-      }
-    );
+    updatePic(data, options).then((res) => {
+      console.log("res: ", res);
+      setUserProfile({
+        userID: userProfile.userID,
+        email: userProfile.email,
+        url: `http://localhost:3000/profile/profile-image/${res.data.url}`,
+      });
+    });
   };
 
   return (
@@ -74,7 +55,7 @@ const FileUpload = () => {
       <div className="inputfile">
         <div>
           <button
-            onClick={handleUpload}
+            onClick={uploadFile}
             style={{ position: "relative", top: -10, left: -15 }}
           >
             Submit

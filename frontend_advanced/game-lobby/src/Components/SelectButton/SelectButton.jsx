@@ -2,8 +2,7 @@ import * as React from "react";
 import { MenuItem, FormControl, Select } from "@material-ui/core";
 import "./SelectButton.css";
 import ColorContext from "../../Context/ColorContext";
-import { httpsCallable } from "firebase/functions";
-import { functions } from "../../Firebase";
+import { updateColor } from "../../API/api";
 
 export default function SelectButton(props) {
   const { users, setUsers, usedColors, setUsedColors } =
@@ -17,8 +16,7 @@ export default function SelectButton(props) {
     newUsers[props.id] = event.target.value;
     newColors[usercolor] = true;
     newColors[event.target.value] = false;
-    const updateColors = httpsCallable(functions, "updateColor");
-    updateColors({ uid: props.id, color: event.target.value });
+    updateColor(props.id, event.target.value);
     setUsers(newUsers);
     setUsedColors(newColors);
   };

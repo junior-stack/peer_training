@@ -1,16 +1,15 @@
-import { signOut } from "firebase/auth";
-import { auth } from "../../Firebase";
 import "./NavBar.css";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
 import ColorContext from "../../Context/ColorContext";
+import { logout } from "../../API/api";
 
 const NavBar = () => {
   const { setIsAuth, userProfile } = useContext(ColorContext);
   const navigate = useNavigate();
 
   const signout = () => {
-    signOut(auth).then(() => {
+    logout().then(() => {
       localStorage.clear();
       setIsAuth(false);
       navigate("/login");
@@ -33,7 +32,7 @@ const NavBar = () => {
       <div className="UploadFile" onClick={toUploadFile}>
         Upload a File
       </div>
-      <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
+      <div>{userProfile.email}</div>
       <div>
         <img src={userProfile.url} />
         <button onClick={signout}>Signout</button>

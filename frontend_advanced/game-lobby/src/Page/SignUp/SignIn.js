@@ -1,11 +1,8 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./../../Firebase/index";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { httpsCallable } from "firebase/functions";
-import { functions } from "./../../Firebase/index";
 import { useContext } from "react";
 import ColorContext from "../../Context/ColorContext";
+import { getAllColors, login } from "../../API/api";
 
 const SignIn = ({ setIsAuth }) => {
   let navigate = useNavigate();
@@ -18,8 +15,8 @@ const SignIn = ({ setIsAuth }) => {
   const { setUsers, setUsedColors, setUserProfile } = useContext(ColorContext);
 
   const getDocument = async () => {
-    const getAllColors = httpsCallable(functions, "getAllColors");
     const data = await getAllColors();
+    console.log("data: ", data);
     data.data.forEach((doc) => {
       userData[doc.userID] = doc.color;
     });
@@ -37,20 +34,17 @@ const SignIn = ({ setIsAuth }) => {
     setUsedColors(newColors);
   };
 
-  const getUserProfile = async () => {
-    const getProfile = httpsCallable(functions, "getProfile");
-    getProfile({ uid: auth.currentUser.uid }).then((result) => {
-      setUserProfile({ url: result.data.url });
-    });
-  };
-
   const sign = async () => {
-    signInWithEmailAndPassword(auth, email, password)
+    login(email, password)
       .then(async (result) => {
         localStorage.setItem("isAuth", true);
         setIsAuth(true);
         getDocument();
-        getUserProfile();
+        setUserProfile({
+          url: `http://localhost:3000/profile/profile-image/${result.data.url}`,
+          email: email,
+          userID: result.data.userID,
+        });
         navigate("/gamelobby");
       })
       .catch((error) => {
