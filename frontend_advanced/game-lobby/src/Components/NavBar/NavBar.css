@@ -34,6 +34,7 @@
 
 .GameLobby:hover {
   background-color: aqua;
+  cursor: pointer;
 }
 
 .UploadFile {
@@ -44,4 +45,9 @@
 
 .UploadFile:hover {
   background-color: aqua;
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
