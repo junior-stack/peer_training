@@ -11,10 +11,8 @@ const FileUpload = () => {
   const { userProfile, setUserProfile } = useContext(ColorContext);
 
   const handleChange = (e) => {
-    console.log("hello");
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
-      console.log("image: ", image);
     }
   };
 
@@ -33,7 +31,6 @@ const FileUpload = () => {
     };
 
     updatePic(data, options).then((res) => {
-      console.log("res: ", res);
       setUserProfile({
         userID: userProfile.userID,
         email: userProfile.email,
