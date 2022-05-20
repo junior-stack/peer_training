@@ -35,7 +35,7 @@ const NavBar = () => {
       </div>
       <div>{auth.currentUser ? auth.currentUser.email : ""}</div>
       <div>
-        <img src={userProfile.url} />
+        <img alt="not upload" src={userProfile.url} />
         <button onClick={signout}>Signout</button>
       </div>
     </div>
