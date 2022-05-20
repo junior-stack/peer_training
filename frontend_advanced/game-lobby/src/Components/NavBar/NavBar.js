@@ -34,7 +34,7 @@ const NavBar = () => {
       </div>
       <div>{userProfile.email}</div>
       <div>
-        <img src={userProfile.url} />
+        <img alt="not uploaded" src={userProfile.url} />
         <button onClick={signout}>Signout</button>
       </div>
     </div>

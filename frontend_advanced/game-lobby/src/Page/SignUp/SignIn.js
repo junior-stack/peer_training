@@ -67,6 +67,7 @@ const SignIn = ({ setIsAuth }) => {
       <input
         name="password"
         placeholder="password..."
+        type="password"
         onChange={(event) => {
           setPassword(event.target.value);
         }}
