@@ -7,7 +7,6 @@ import ColorContext from "../../Context/ColorContext";
 import NavBar from "../../Components/NavBar/NavBar";
 
 const GameLoby = (props) => {
-  console.log("gamelobby");
   const { users } = useContext(ColorContext);
 
   return (

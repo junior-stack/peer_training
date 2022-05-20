@@ -15,10 +15,8 @@ const FileUpload = () => {
   const { userProfile, setUserProfile } = useContext(ColorContext);
 
   const handleChange = (e) => {
-    console.log("hello");
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
-      console.log("image: ", image);
     }
   };
 
@@ -29,17 +27,15 @@ const FileUpload = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        console.log("bytes transferred: ", snapshot.bytesTransferred);
         setProgress(
           Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
         );
       },
       (error) => {
-        console.log(error);
+        console.error(error);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
           const uploadPicture = httpsCallable(functions, "uploadPicture");
           uploadPicture({
             uid: auth.currentUser.uid,
